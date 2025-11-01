@@ -52,9 +52,8 @@ student-management-sql/
 CREATE DATABASE StudentManagement;
 USE StudentManagement;
 
--- ==========================
 -- 1. STUDENTS TABLE
--- ==========================
+
 CREATE TABLE Students (
     RollNo INT PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
@@ -63,17 +62,15 @@ CREATE TABLE Students (
     Email VARCHAR(50) UNIQUE
 );
 
--- ==========================
 -- 2. SUBJECTS TABLE
--- ==========================
+
 CREATE TABLE Subjects (
     SubjectCode VARCHAR(10) PRIMARY KEY,
     SubjectName VARCHAR(50) NOT NULL
 );
 
--- ==========================
 -- 3. MARKS TABLE
--- ==========================
+
 CREATE TABLE Marks (
     RollNo INT,
     SubjectCode VARCHAR(10),
@@ -83,9 +80,8 @@ CREATE TABLE Marks (
     FOREIGN KEY (SubjectCode) REFERENCES Subjects(SubjectCode)
 );
 
--- ==========================
 -- 4. ATTENDANCE TABLE
--- ==========================
+
 CREATE TABLE Attendance (
     RollNo INT,
     Date DATE,
@@ -102,21 +98,19 @@ CREATE TABLE Attendance (
 ```sql
 USE StudentManagement;
 
--- Insert Students
 INSERT INTO Students (RollNo, Name, Class, AadharNo, Email)
 VALUES 
 (101, 'Ravi Kumar', '10A', '123456789012', 'ravi@example.com'),
 (102, 'Sneha Reddy', '10A', '234567890123', 'sneha@example.com'),
 (103, 'Amit Singh', '10B', '345678901234', NULL);
 
--- Insert Subjects
+
 INSERT INTO Subjects (SubjectCode, SubjectName)
 VALUES 
 ('MATH', 'Mathematics'),
 ('ENG', 'English'),
 ('SCI', 'Science');
 
--- Insert Marks
 INSERT INTO Marks (RollNo, SubjectCode, Marks)
 VALUES 
 (101, 'MATH', 88),
@@ -124,7 +118,7 @@ VALUES
 (102, 'SCI', 76),
 (103, 'ENG', 85);
 
--- Insert Attendance
+
 INSERT INTO Attendance (RollNo, Date, Status)
 VALUES
 (101, '2025-11-01', 'Present'),
